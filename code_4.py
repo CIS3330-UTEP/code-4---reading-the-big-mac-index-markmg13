@@ -20,7 +20,7 @@ def get_big_mac_price_by_country(country_code):
                'usa', 'zaf', 'are', 'aze', 'bhr', 'col', 'cri', 'egy', 'gtm', 'hon', 'hrv', 'jor', 'kwt', 
                'lbn', 'lka', 'mda', 'nic', 'nor', 'omn', 'pak', 'per', 'phl', 'qat', 'rou', 'sau', 'tur', 'ury', 'ven', 'vnm']
     if country_code.lower() in c_codes:
-        query = df[(df['iso_a3'].str.lower() == country_code.lower()) & (df['name'].str.startswith(str(country_code)))]
+        query = df[(df['iso_a3'].str.lower() == country_code.lower())]
         round_b = round(query['dollar_price'].mean(),2)
     
     return round_b
