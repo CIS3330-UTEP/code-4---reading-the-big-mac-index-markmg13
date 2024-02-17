@@ -37,7 +37,7 @@ def test_the_cheapest_big_mac_price_by_year():
 
 def test_the_most_expensive_big_mac_price_by_year():
     year = [2003,2014,2016,2014,2013,2005,2006,2010,2011,2009]
-    value = ['Switzerland(CHE): $4.6', 'Norway(NOR): $7.8', 'Switzerland(CHE): $6.59', 'Norway(NOR): $7.8', 'Venezuela(VEN): $9.08', 'Norway(NOR): $6.06', 'Norway(NOR): $7.05', 'Norway(NOR): $7.2', 'Norway(NOR): $8.31', 'Norway(NOR): $6.15']
+    value = ['Switzerland(CHE): $4.60', 'Norway(NOR): $7.8', 'Switzerland(CHE): $6.59', 'Norway(NOR): $7.8', 'Venezuela(VEN): $9.08', 'Norway(NOR): $6.06', 'Norway(NOR): $7.05', 'Norway(NOR): $7.2', 'Norway(NOR): $8.31', 'Norway(NOR): $6.15']
     check_if_file_exists()
     random_choice = random.randint(1,10)
     assert get_the_most_expensive_big_mac_price_by_year(year[random_choice-1]) == value[random_choice-1]
