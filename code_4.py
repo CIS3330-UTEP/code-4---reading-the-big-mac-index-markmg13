@@ -42,11 +42,11 @@ def get_the_most_expensive_big_mac_price_by_year(year):
     return f"{name}({c_name}): ${p_d:.2f}"
 
 if __name__ == "__main__":
-   r_a = get_the_cheapest_big_mac_price_by_year(2009,"mex")
+   r_a = get_the_cheapest_big_mac_price_by_year()
    print(r_a)
-   r_b = get_big_mac_price_by_country("mex")
+   r_b = get_big_mac_price_by_country()
    print(r_b)
-   r_c = get_the_cheapest_big_mac_price_by_year(2008)
+   r_c = get_the_cheapest_big_mac_price_by_year()
    print(r_c)
-   r_d = get_the_most_expensive_big_mac_price_by_year(2003)
+   r_d = get_the_most_expensive_big_mac_price_by_year()
    print(r_d)
