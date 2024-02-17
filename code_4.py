@@ -4,24 +4,16 @@ big_mac_file = './big-mac-full-index.csv'
 df = pd.read_csv('big-mac-full-index.csv')
 
 def get_big_mac_price_by_year(year,country_code):
-    c_codes = ['arg','aus','bra','can','che','ch1','chn','cze','dnk','euz','gbr','hkg','hun','idn','irs','jpn','kor', 
-               'mex', 'mys', 'nzl', 'pol', 'rus', 'sgp', 'swe', 'tha', 'twn',
-               'usa', 'zaf', 'are', 'aze', 'bhr', 'col', 'cri', 'egy', 'gtm', 'hon', 'hrv', 'jor', 'kwt', 
-               'lbn', 'lka', 'mda', 'nic', 'nor', 'omn', 'pak', 'per', 'phl', 'qat', 'rou', 'sau', 'tur', 'ury', 'ven', 'vnm']
-    if country_code.lower() in c_codes:
-        query = df[(df['iso_a3'].str.lower() == country_code.lower()) & (df['date'].str.startswith(str(year)))]
-        round_a = round(query['dollar_price'].mean(),2)
-    
-    return round_a
+    query = f"date.str.startswith('{year}) and iso_a3 == '{country_code}"
+    result = df.query(query)
+    mean_price = result['dollar_price'].mean()
+    return round(mean_price, 2)
 
 def get_big_mac_price_by_country(country_code):
-    c_codes = ['arg','aus','bra','can','che','ch1','chn','cze','dnk','euz','gbr','hkg','hun','idn','irs','jpn','kor', 
-               'mex', 'mys', 'nzl', 'pol', 'rus', 'sgp', 'swe', 'tha', 'twn',
-               'usa', 'zaf', 'are', 'aze', 'bhr', 'col', 'cri', 'egy', 'gtm', 'hon', 'hrv', 'jor', 'kwt', 
-               'lbn', 'lka', 'mda', 'nic', 'nor', 'omn', 'pak', 'per', 'phl', 'qat', 'rou', 'sau', 'tur', 'ury', 'ven', 'vnm']
-    if country_code.lower() in c_codes:
-        query = df[(df['iso_a3'].str.lower() == country_code.lower()) & (df['name'].str.startswith(str(country_code)))]
-        round_b = round(query['dollar_price'].mean(),2)
+    query = f"iso_a3 == '{country_code}'"
+    result = df.query(query)
+    mean_price = result['dollar_price'].mean()
+    return round(mean_price, 2)
     
     return round_b
 
