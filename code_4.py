@@ -9,8 +9,8 @@ def get_big_mac_price_by_year(year,country_code):
                'usa', 'zaf', 'are', 'aze', 'bhr', 'col', 'cri', 'egy', 'gtm', 'hon', 'hrv', 'jor', 'kwt', 
                'lbn', 'lka', 'mda', 'nic', 'nor', 'omn', 'pak', 'per', 'phl', 'qat', 'rou', 'sau', 'tur', 'ury', 'ven', 'vnm']
     if country_code.lower() in c_codes:
-        query_data = df[(df['iso_a3'].str.lower() == country_code.lower()) & (df['date'].str.startswith(str(year)))]
-        round_a = round(query_data['dollar_price'].mean(),2)
+        query = df[(df['iso_a3'].str.lower() == country_code.lower()) & (df['date'].str.startswith(str(year)))]
+        round_a = round(query['dollar_price'].mean(),2)
     
     return round_a
 
@@ -20,8 +20,8 @@ def get_big_mac_price_by_country(country_code):
                'usa', 'zaf', 'are', 'aze', 'bhr', 'col', 'cri', 'egy', 'gtm', 'hon', 'hrv', 'jor', 'kwt', 
                'lbn', 'lka', 'mda', 'nic', 'nor', 'omn', 'pak', 'per', 'phl', 'qat', 'rou', 'sau', 'tur', 'ury', 'ven', 'vnm']
     if country_code.lower() in c_codes:
-        query_data = df[(df['iso_a3'].str.lower() == country_code.lower()) & (df['name'].str.startswith(str(country_code)))]
-        round_b = round(query_data['dollar_price'].mean(),2)
+        query = df[(df['iso_a3'].str.lower() == country_code.lower()) & (df['name'].str.startswith(str(country_code)))]
+        round_b = round(query['dollar_price'].mean(),2)
     
     return round_b
 
