@@ -23,7 +23,7 @@ def get_big_mac_price_by_country(country_code):
         query = df[(df['iso_a3'].str.lower() == country_code.lower()) & (df['name'].str.startswith(str(country_code)))]
         round_b = round(query['dollar_price'].mean(),2)
     
-    return round_b
+    return query
 
 def get_the_cheapest_big_mac_price_by_year(year):
     years = df[df['date'].str.startswith(str(year))]
